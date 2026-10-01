@@ -1,0 +1,79 @@
+.bands {
+  position: relative;
+  z-index: 5;
+  height: 200px;
+  margin-top: -150px;
+  overflow-x: clip;
+  pointer-events: none;
+}
+
+.band {
+  position: absolute;
+  left: -5vw;
+  width: 110vw;
+  padding-block: 1rem;
+}
+
+.track span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.sep {
+  margin-inline: 1.4rem;
+}
+
+.blue {
+  top: 70px;
+  transform: rotate(-3deg);
+  background: var(--primary);
+  color: var(--white);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 20px 40px -20px rgb(11 42 91 / 0.6);
+}
+
+.blue .sep {
+  color: var(--accent-soft);
+}
+
+.white {
+  top: 60px;
+  transform: rotate(2.5deg);
+  background: var(--white);
+  color: var(--primary);
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.2rem, 2.3vw, 1.75rem);
+  border-block: 1px solid rgb(11 42 91 / 0.1);
+  box-shadow: 0 16px 36px -22px rgb(11 42 91 / 0.45);
+}
+
+.white .sep {
+  font-style: normal;
+  font-size: 0.7em;
+  color: var(--blue);
+}
+
+@media (max-width: 767px) {
+  .bands {
+    height: 150px;
+    margin-top: -110px;
+  }
+
+  .band {
+    padding-block: 0.7rem;
+  }
+
+  .blue {
+    top: 55px;
+  }
+
+  .white {
+    top: 45px;
+  }
+}

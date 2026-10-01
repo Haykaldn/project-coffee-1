@@ -1,0 +1,267 @@
+/* ---------- Kartu berita ---------- */
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: var(--radius-card);
+  background: var(--white);
+  color: var(--text-body);
+  border: 1px solid rgb(11 42 91 / 0.06);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition:
+    transform 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 32px 56px -28px rgb(11 42 91 / 0.45);
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--bg-hero);
+  overflow: hidden;
+}
+
+.media img {
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.card:hover .media img {
+  transform: scale(1.04);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  transition: color 0.25s var(--ease);
+}
+
+.more svg {
+  transition: transform 0.25s var(--ease);
+}
+
+.card:hover .more {
+  color: var(--blue);
+}
+
+.card:hover .more svg {
+  transform: translateX(4px);
+}
+
+.featured {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  margin-bottom: 1.5rem;
+}
+
+.featured .media {
+  aspect-ratio: auto;
+  min-height: 340px;
+}
+
+.featured .body {
+  justify-content: center;
+  padding: clamp(1.75rem, 4vw, 3rem);
+}
+
+.featured .cardTitle {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 560;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* ---------- Badge & tanggal ---------- */
+.badges {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.badge,
+.badgeDone {
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.badge_event {
+  background: var(--bg-hero);
+  color: var(--blue);
+}
+
+.badge_promo {
+  background: rgb(30 122 76 / 0.12);
+  color: var(--accent);
+}
+
+.badge_info {
+  background: rgb(11 42 91 / 0.08);
+  color: var(--primary);
+}
+
+.badgeDone {
+  background: rgb(58 78 110 / 0.12);
+  color: var(--text-body);
+}
+
+.date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.date svg {
+  color: var(--accent);
+}
+
+/* ---------- Detail ---------- */
+.detail {
+  padding: clamp(7.5rem, 13vw, 9.5rem) 0 clamp(3.5rem, 7vw, 5.5rem);
+  background:
+    radial-gradient(ellipse 60% 40% at 90% 0%, rgb(29 95 191 / 0.1), transparent 70%),
+    var(--bg-soft);
+}
+
+.detailHead {
+  margin-bottom: 2rem;
+}
+
+.detailTitle {
+  max-width: 50rem;
+  margin: 1rem 0;
+  font-size: clamp(2.2rem, 4.6vw, 3.6rem);
+}
+
+.detailMedia {
+  position: relative;
+  aspect-ratio: 21 / 9;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--bg-hero);
+  box-shadow: var(--shadow-card);
+}
+
+.detailMedia img {
+  object-fit: cover;
+}
+
+.detailBody {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  margin-top: clamp(2rem, 5vw, 3rem);
+}
+
+.detailBodyEvent {
+  grid-template-columns: minmax(0, 1fr) 360px;
+  align-items: start;
+}
+
+.content {
+  display: grid;
+  gap: 1.1rem;
+  max-width: 44rem;
+}
+
+.eventCard {
+  position: sticky;
+  top: 110px;
+}
+
+.eventCard dl {
+  display: grid;
+  gap: 0.9rem;
+  margin: 0.25rem 0 0.75rem;
+}
+
+.eventCard dt {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.eventCard dt svg {
+  color: var(--accent);
+}
+
+.eventCard dd {
+  margin: 0.15rem 0 0 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.4;
+}
+
+.eventCard > a {
+  width: 100%;
+}
+
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featured,
+  .detailBodyEvent {
+    grid-template-columns: 1fr;
+  }
+
+  .featured .media {
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+
+  .eventCard {
+    position: static;
+  }
+
+  .detailMedia {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 599px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

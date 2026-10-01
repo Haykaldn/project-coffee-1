@@ -1,0 +1,67 @@
+.footer {
+  background: var(--primary);
+  color: rgb(255 255 255 / 0.78);
+  padding: 3.5rem 0 2rem;
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgb(255 255 255 / 0.14);
+}
+
+.brand {
+  display: grid;
+  gap: 1rem;
+  max-width: 420px;
+}
+
+.brand p {
+  font-size: 1rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgb(255 255 255 / 0.2);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition:
+    background-color 0.25s var(--ease),
+    border-color 0.25s var(--ease);
+}
+
+.links a:hover {
+  background: rgb(255 255 255 / 0.08);
+  border-color: var(--accent-soft);
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  margin-top: 2.5rem;
+  font-size: 0.9rem;
+  color: rgb(255 255 255 / 0.66);
+}
+
+.bottom p:last-child {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  color: var(--accent-soft);
+}

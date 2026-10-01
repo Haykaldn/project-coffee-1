@@ -1,0 +1,207 @@
+/* Gaya bersama halaman turunan. Mengikuti section "Kunjungi Kami" di beranda. */
+
+/* ---------- Header ---------- */
+.header {
+  position: relative;
+  padding: clamp(7.5rem, 13vw, 9.5rem) 0 clamp(3.5rem, 6vw, 5rem);
+  border-radius: 0 0 var(--radius-overlap) var(--radius-overlap);
+  background:
+    radial-gradient(ellipse 60% 60% at 90% 0%, rgb(29 95 191 / 0.45), transparent 70%),
+    var(--primary);
+  color: rgb(255 255 255 / 0.8);
+  overflow: hidden;
+}
+
+.headerRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.headerTitle {
+  color: var(--white);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  margin-bottom: 1.25rem;
+}
+
+.headerTitle em {
+  color: #a9c8f0;
+}
+
+.headerLead {
+  max-width: 36rem;
+  font-size: 1.1rem;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary);
+  transition: color 0.25s var(--ease);
+}
+
+.back svg {
+  transition: transform 0.25s var(--ease);
+}
+
+.back:hover {
+  color: var(--blue);
+}
+
+.back:hover svg {
+  transform: translateX(-4px);
+}
+
+.back_dark {
+  color: rgb(255 255 255 / 0.85);
+}
+
+.back_dark:hover {
+  color: var(--white);
+}
+
+/* ---------- Section ---------- */
+.section {
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+}
+
+.sectionTint {
+  background: var(--bg-section);
+}
+
+.sectionHead {
+  max-width: 42rem;
+  margin-bottom: clamp(2rem, 4vw, 2.75rem);
+}
+
+.sectionHead h2 {
+  margin-bottom: 1rem;
+}
+
+.sectionHead p {
+  font-size: 1.1rem;
+}
+
+/* ---------- Kartu (sama dengan kartu "Kunjungi Kami") ---------- */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.75rem 1.5rem;
+  border-radius: var(--radius-card);
+  background: var(--white);
+  color: var(--text-body);
+  border: 1px solid rgb(11 42 91 / 0.06);
+  box-shadow: var(--shadow-card);
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.icon {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--bg-hero);
+  color: var(--accent);
+}
+
+/* ---------- Filter pil ---------- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.filter {
+  min-height: 44px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  border: 1.5px solid rgb(11 42 91 / 0.18);
+  background: var(--white);
+  color: var(--primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition:
+    background-color 0.25s var(--ease),
+    border-color 0.25s var(--ease),
+    color 0.25s var(--ease);
+}
+
+.filter:hover {
+  border-color: var(--primary);
+}
+
+.filter[aria-pressed="true"] {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+
+/* ---------- Blok ajakan biru tua ---------- */
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  border-radius: var(--radius-card);
+  background:
+    radial-gradient(ellipse 60% 80% at 100% 0%, rgb(29 95 191 / 0.5), transparent 70%),
+    var(--primary);
+  color: rgb(255 255 255 / 0.8);
+  box-shadow: 0 30px 50px -30px rgb(11 42 91 / 0.6);
+}
+
+.cta h2 {
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+
+.cta h2 em {
+  color: #a9c8f0;
+}
+
+.cta p {
+  max-width: 34rem;
+  font-size: 1.1rem;
+}
+
+.ctaActions {
+  display: grid;
+  justify-items: start;
+  gap: 0.75rem;
+}
+
+.ctaPhone {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  font-variant-numeric: tabular-nums;
+}
+
+.empty {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (max-width: 599px) {
+  .headerRow > a,
+  .ctaActions,
+  .ctaActions > a {
+    width: 100%;
+  }
+}

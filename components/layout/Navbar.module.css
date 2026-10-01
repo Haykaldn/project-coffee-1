@@ -1,0 +1,196 @@
+.wrap {
+  position: fixed;
+  inset: 16px 0 auto;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  padding-inline: 12px;
+  pointer-events: none;
+  transition:
+    top 0.4s var(--ease),
+    padding 0.4s var(--ease);
+}
+
+/* Saat halaman di-scroll, navbar kapsul berubah menjadi bar penuh di tepi atas layar. */
+.wrapScrolled {
+  top: 0;
+  padding-inline: 0;
+}
+
+.nav {
+  pointer-events: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: min(100%, 1240px);
+  padding: 0.55rem 0.6rem 0.55rem 1.1rem;
+  border-radius: 999px;
+  /* Glassmorphism (frosted glass): putih semi-transparan + blur konten di belakangnya. */
+  background: rgb(255 255 255 / 0.65);
+  border: 1px solid rgb(255 255 255 / 0.4);
+  box-shadow: none;
+  /* Urutan penting: versi -webkit- (Safari) harus di atas versi standar. Kalau terbalik, minifier CSS
+     Next.js membuang `backdrop-filter` standar sehingga Chrome/Edge tidak mendapat blur sama sekali. */
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition:
+    width 0.4s var(--ease),
+    padding 0.4s var(--ease),
+    border-radius 0.4s var(--ease),
+    border-color 0.3s var(--ease),
+    background-color 0.3s var(--ease),
+    box-shadow 0.3s var(--ease);
+}
+
+.scrolled {
+  width: 100%;
+  /* Isi navbar tetap sejajar dengan container halaman. */
+  padding: 0.6rem max(var(--gutter), (100% - var(--container)) / 2);
+  border-radius: 0;
+  border-color: transparent;
+  /* Tepi kaca: garis bawah tipis putih transparan. */
+  border-bottom-color: rgb(255 255 255 / 0.4);
+}
+
+/* Browser tanpa dukungan backdrop-filter: pakai latar lebih pekat agar teks tetap terbaca. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .nav,
+  .scrolled {
+    background: rgb(255 255 255 / 0.94);
+  }
+}
+
+.brand {
+  flex-shrink: 0;
+  border-radius: 999px;
+}
+
+.links {
+  display: flex;
+  gap: 0.25rem;
+  margin-inline: auto;
+}
+
+.links a {
+  position: relative;
+  display: inline-block;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary);
+  border-radius: 999px;
+  transition: color 0.2s var(--ease);
+}
+
+.links a::after {
+  content: "";
+  position: absolute;
+  left: 0.8rem;
+  right: 0.8rem;
+  bottom: 0.3rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
+}
+
+.links a:hover {
+  color: var(--blue);
+}
+
+.links a.active::after,
+.links a:hover::after {
+  transform: scaleX(1);
+}
+
+.links a:hover::after {
+  background: var(--blue);
+}
+
+.links a.active:hover::after {
+  background: var(--accent);
+}
+
+.cta {
+  flex-shrink: 0;
+}
+
+.toggle {
+  display: none;
+  width: 48px;
+  height: 48px;
+  margin-left: auto;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: var(--white);
+}
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  .links,
+  .cta {
+    display: none;
+  }
+
+  .toggle {
+    display: inline-flex;
+  }
+
+  .isOpen {
+    border-radius: 28px;
+    background: rgb(255 255 255 / 0.96);
+  }
+
+  .scrolled.isOpen {
+    border-radius: 0;
+  }
+
+  .scrolled .mobile:not([hidden]) {
+    left: 12px;
+    right: 12px;
+  }
+
+  .mobile:not([hidden]) {
+    display: block;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    border-radius: 28px;
+    background: var(--white);
+    box-shadow: 0 24px 48px -20px rgb(11 42 91 / 0.45);
+  }
+
+  .mobile ul {
+    display: grid;
+    margin-bottom: 1rem;
+  }
+
+  .mobileLink {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.95rem 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary);
+    border-bottom: 1px solid var(--bg-section);
+  }
+
+  .mobileLink.active {
+    color: var(--accent);
+  }
+
+  .mobile > a {
+    width: 100%;
+  }
+}

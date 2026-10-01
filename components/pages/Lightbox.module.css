@@ -1,0 +1,126 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 4.5rem clamp(0.75rem, 3vw, 2rem) 2rem;
+  background: rgb(6 22 48 / 0.92);
+  backdrop-filter: blur(6px);
+  animation: fade 0.3s var(--ease);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+.figure {
+  grid-column: 2;
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  max-height: 100%;
+  margin: 0;
+  min-width: 0;
+}
+
+.frame {
+  display: grid;
+  place-items: center;
+  max-width: min(100%, 1100px);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--bg-hero);
+  box-shadow: 0 40px 80px -40px rgb(0 0 0 / 0.8);
+}
+
+.frame img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100dvh - 12rem);
+  object-fit: contain;
+}
+
+.caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  width: min(100%, 1100px);
+  color: var(--white);
+  font-size: 1rem;
+}
+
+.counter {
+  color: rgb(255 255 255 / 0.6);
+  font-variant-numeric: tabular-nums;
+}
+
+.close,
+.nav {
+  display: inline-grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--primary);
+  transition:
+    background-color 0.25s var(--ease),
+    transform 0.25s var(--ease);
+}
+
+.close:hover,
+.nav:hover {
+  background: var(--bg-hero);
+  transform: scale(1.05);
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.prev {
+  grid-column: 1;
+}
+
+.next {
+  grid-column: 3;
+}
+
+@media (max-width: 767px) {
+  .backdrop {
+    grid-template-columns: 1fr;
+    align-content: center;
+  }
+
+  .figure {
+    grid-column: 1;
+  }
+
+  .nav {
+    position: absolute;
+    bottom: 1.25rem;
+    width: 48px;
+    height: 48px;
+  }
+
+  .prev {
+    left: calc(50% - 60px);
+  }
+
+  .next {
+    right: calc(50% - 60px);
+  }
+
+  .backdrop {
+    padding-bottom: 5.5rem;
+  }
+}

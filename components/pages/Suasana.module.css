@@ -1,0 +1,78 @@
+.masonry {
+  columns: 3 280px;
+  column-gap: 1.25rem;
+}
+
+.masonry > li {
+  break-inside: avoid;
+  margin-bottom: 1.25rem;
+}
+
+.tile {
+  position: relative;
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--bg-hero);
+  box-shadow: var(--shadow-card);
+  text-align: left;
+  transition: transform 0.4s var(--ease);
+}
+
+.tile:hover {
+  transform: translateY(-4px);
+}
+
+.tile img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.6s var(--ease);
+}
+
+.tile:hover img {
+  transform: scale(1.04);
+}
+
+.tileCaption {
+  position: absolute;
+  inset: auto 0 0;
+  display: grid;
+  justify-items: start;
+  gap: 0.4rem;
+  padding: 2.5rem 1.25rem 1.1rem;
+  background: linear-gradient(to top, rgb(6 22 48 / 0.85), transparent);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.35s var(--ease),
+    transform 0.35s var(--ease);
+}
+
+.tile:hover .tileCaption,
+.tile:focus-visible .tileCaption {
+  opacity: 1;
+  transform: none;
+}
+
+.tileTag {
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Layar sentuh tidak punya hover: caption selalu tampil. */
+@media (hover: none) {
+  .tileCaption {
+    opacity: 1;
+    transform: none;
+  }
+}

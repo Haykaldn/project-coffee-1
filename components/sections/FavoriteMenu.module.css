@@ -1,0 +1,208 @@
+.section {
+  position: relative;
+  z-index: 2;
+  margin-top: calc(-1 * var(--overlap));
+  padding: clamp(3rem, 6vw, 4.5rem) 0 calc(clamp(5rem, 9vw, 7rem) + var(--overlap));
+  border-radius: var(--radius-overlap) var(--radius-overlap) 0 0;
+  background: var(--bg-section);
+  box-shadow: 0 -24px 48px -32px rgb(11 42 91 / 0.35);
+}
+
+/* ---------- Highlight ala Instagram ---------- */
+.highlights {
+  display: flex;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.highlight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 16px;
+}
+
+.ring {
+  display: block;
+  width: 92px;
+  height: 92px;
+  padding: 3px;
+  border-radius: 50%;
+  background: conic-gradient(from 210deg, var(--primary), var(--blue), var(--accent-soft), var(--blue), var(--primary));
+  transition: transform 0.35s var(--ease);
+}
+
+.ring img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--bg-section);
+  background: var(--white);
+}
+
+.highlight:hover .ring {
+  transform: scale(1.06) rotate(-3deg);
+}
+
+.highlightLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+/* ---------- Judul ---------- */
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.seeAll {
+  flex-shrink: 0;
+  font-weight: 700;
+  color: var(--primary);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.2rem;
+  transition: color 0.25s var(--ease);
+}
+
+.seeAll:hover {
+  color: var(--blue);
+}
+
+/* ---------- Grid feed ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2.2vw, 1.75rem);
+}
+
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: var(--radius-card);
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 32px 60px -30px rgb(11 42 91 / 0.45);
+}
+
+.media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  aspect-ratio: 1;
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.card:hover .media img {
+  transform: scale(1.05);
+}
+
+.category {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.92);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.save {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.4rem;
+  padding: 1.1rem 0.9rem 0.9rem;
+}
+
+.body h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.body p {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.price {
+  margin-top: 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+@media (max-width: 767px) {
+  .highlights {
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 0.25rem var(--gutter) 0.5rem;
+    scrollbar-width: none;
+  }
+
+  .highlights::-webkit-scrollbar {
+    display: none;
+  }
+
+  .highlights li {
+    scroll-snap-align: start;
+  }
+
+  .ring {
+    width: 76px;
+    height: 76px;
+  }
+
+  .head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .body h3 {
+    font-size: 1.1rem;
+  }
+}

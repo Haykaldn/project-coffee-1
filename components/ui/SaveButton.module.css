@@ -1,0 +1,32 @@
+.save {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.9);
+  color: var(--primary);
+  box-shadow: 0 8px 20px -10px rgb(11 42 91 / 0.5);
+  backdrop-filter: blur(6px);
+  transition:
+    background-color 0.25s var(--ease),
+    color 0.25s var(--ease);
+}
+
+.save:hover {
+  color: var(--blue);
+}
+
+.saved {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.saved:hover {
+  color: var(--white);
+  background: var(--blue);
+}
+
+.saved svg {
+  fill: currentColor;
+}
