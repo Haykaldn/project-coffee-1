@@ -1,6 +1,6 @@
 # Website UB Coffee
 
-Redesign website UB Coffee (unit usaha PT Brawijaya Multi Usaha), dibangun dengan Next.js 16, Motion, Lenis, dan komponen adaptasi React Bits. Mengikuti `../UB-Coffee-Website-Spec.md`.
+Redesign website UB Coffee (unit usaha PT Brawijaya Multi Usaha), dibangun dengan Next.js 16, Motion, Lenis, dan komponen adaptasi React Bits.
 
 ## Menjalankan
 
